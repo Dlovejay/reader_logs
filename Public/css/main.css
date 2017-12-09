@@ -1,0 +1,26 @@
+.top-title{
+    height: 60px;
+}
+.top-title h2{
+    text-align: center;
+    color: #0785d1;
+}
+.login-form-div,.no-user{
+    text-align: center;
+}
+.form-item{
+    height: 40px;
+    width: 100%;
+}
+.form-item span{
+    width:50%;
+    display: block;
+    float: left;
+}
+.form-item span input{
+    float: left;
+    padding: 3px 5px;
+}
+.item-span{
+    text-align: right;
+}

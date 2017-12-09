@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css" />
+    <script src="__PUBLIC__/js/jquery-3.2.1.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="top-title">
+    <h2>
+        读书记录系统
+    </h2>
+</div>
+<div class="index-login">
+    <div class="login-summary">
+        <h4 style="font-weight: 100;color: #6dbfff;text-align: center">进行一个简单的注册</h4>
+        <div class="login-form-div">
+            <form class="login-form" method="post" action="{:U('index/do_reg')}" id="reg-form">
+                <div class="form-item">
+                    <span class="item-span">用户名：</span>
+                    <span style="text-align: left;margin-left: 10px;width: 40%">
+                        <input type="text" id="uname" name="uname" placeholder="请输入用户名" maxlength="32">
+                        <span style="margin-left: 15px;color:red;font-size: 12px;"></span>
+                    </span>
+
+                </div>
+                <div class="form-item">
+                    <span class="item-span">密 码 ：</span>
+                    <span style="text-align: left;margin-left: 10px;width: 40%">
+                        <input type="password" name="pwd" id="pwd">
+                        <span style="margin-left: 15px;color:red;font-size: 12px;"></span>
+                    </span>
+                </div>
+                <div class="form-item">
+                    <span class="item-span">密码确认：</span>
+                    <span style="text-align: left;margin-left: 10px;width: 40%">
+                        <input type="password" name="re_pwd" id="re_pwd">
+                        <span style="margin-left: 15px;color:red;font-size: 12px;"></span>
+                    </span>
+                </div>
+                <div class="form-item">
+                    <span class="item-span">邮箱：</span>
+                    <span style="text-align: left;margin-left: 10px;width: 40%">
+                        <input type="text" name="email" id="email">
+                        <span style="margin-left: 15px;color:red;font-size: 12px;"></span>
+                    </span>
+                </div>
+                <div class="form-item">
+                    <input type="submit" value="提交" id="form-sub">
+                </div>
+            </form>
+        </div>
+        <div class="no-user">
+            <span>还没有账号？立即<a href="{:U('index/regist')}">注册</a></span>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $('#form-sub').click(function () {
+        var uname = $('#uname').val();
+        var pwd = $('#pwd').val();
+        var re_pwd = $('#re_pwd').val();
+        if(uname == ''){
+            $('#uname').next().text('请输入用户名')
+            return false;
+        }else{
+            $('#uname').next().text('')
+        }
+        if(pwd == ''){
+            $('#pwd').next().text('请输入密码')
+            return false;
+        }else{
+            $('#pwd').next().text('')
+        }
+        if(re_pwd == ''){
+            $('#re_pwd').next().text('请输入密码')
+            return false;
+        }else{
+            $('#re_pwd').next().text('')
+        }
+        if(pwd != re_pwd){
+            $('#re_pwd').next().text('两次输入的密码不一致')
+            return false;
+        }else{
+            $('#re_pwd').next().text('')
+        }
+        return true
+    })
+</script>
+</html>

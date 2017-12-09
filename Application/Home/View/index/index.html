@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/main.css" />
+  <script src="__PUBLIC__/js/jquery-3.2.1.min.js"></script>
+  <meta charset="utf-8">
+</head>
+<body>
+<div class="top-title">
+  <h2>
+    读书记录系统
+  </h2>
+</div>
+<div class="index-login">
+  <div class="login-summary">
+    <h4 style="font-weight: 100;color: #6dbfff;text-align: center">请先登录</h4>
+    <div class="login-form-div">
+      <form class="login-form" method="post" action="{:U('index/login')}">
+        <div class="form-item">
+        用户名：<input type="text" name="uname" placeholder="请输入用户名" maxlength="32">
+        </div>
+        <div class="form-item">
+           密 码：<input type="password" name="pwd" >
+        </div>
+        <div class="form-item">
+          <input type="submit" value="提交">
+        </div>
+      </form>
+    </div>
+    <div class="no-user">
+      <span>还没有账号？立即<a href="{:U('index/register')}">注册</a></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

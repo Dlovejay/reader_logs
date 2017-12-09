@@ -1,10 +1,24 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-class RecordsController extends Controller
+use \Home\Controller;
+
+class RecordsController extends BaseController
 {
     public function index()
     {
-        echo 123;
+        $records = M('reader_logs');
+        $map = array(
+            'uid' => $_SESSION['user_info']['id']
+        );
+        $count = $records->where($map)->count();
+        $page = new \Think\Page($count, 20);
+        $show = $page->show();
+
+        $list = $records->where($map)->order('id desc')->select();
+        dump($list);
+        exit;
+        $this->assign('records', $list);
+        $this->assign('page', $show);
+        $this->display('index');
     }
 }
