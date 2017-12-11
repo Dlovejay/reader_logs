@@ -11,9 +11,11 @@ class RecordsController extends BaseController
             'uid' => $_SESSION['user_info']['id']
         );
         $count = $records->where($map)->count();
-        $page = new \Think\Page($count, 20);
+        import('ORG.Util.Page');
+        $page = new Page($count);
         $show = $page->show();
-
+        dump($show);
+        
         $list = $records->where($map)->order('id desc')->select();
         dump($list);
         exit;
